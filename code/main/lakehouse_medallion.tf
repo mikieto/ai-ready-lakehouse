@@ -23,12 +23,18 @@ resource "aws_glue_catalog_database" "db" {
 resource "aws_athena_workgroup" "wg" {
   name = "lh-${var.env}-wg"
   force_destroy = true
-  configuration { result_configuration { output_location = "s3://${aws_s3_bucket.lakehouse.bucket}/query-results/" } }
+  configuration { 
+    result_configuration {  output_location = "s3://${aws_s3_bucket.lakehouse.bucket}/query-results/" } 
+  }
 }
 
 resource "aws_emrserverless_application" "etl" {
   name = "lh-${var.env}-etl"
   release_label = "emr-6.12.0"
   type = "SPARK"
-  maximum_capacity { cpu="4 vCPU" memory="8 GB" disk="50 GB" }
+  maximum_capacity {
+    cpu="4 vCPU"
+    memory="8 GB"
+    disk="50 GB"
+  }
 }
