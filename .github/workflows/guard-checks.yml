@@ -1,0 +1,7 @@
+
+name: guard-checks
+on: [pull_request]
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps: [ { run: echo guard } ]

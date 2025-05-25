@@ -1,0 +1,8 @@
+
+name: silver-transform
+on:
+  pull_request: { paths: ['observability/dbt/**'] }
+jobs:
+  transform:
+    runs-on: ubuntu-latest
+    steps: [ { run: echo dbt silver } ]

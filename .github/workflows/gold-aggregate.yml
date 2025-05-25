@@ -1,0 +1,8 @@
+
+name: gold-aggregate
+on:
+  pull_request: { paths: ['observability/dbt/**'] }
+jobs:
+  aggregate:
+    runs-on: ubuntu-latest
+    steps: [ { run: echo dbt gold } ]

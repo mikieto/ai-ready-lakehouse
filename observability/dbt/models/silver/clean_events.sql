@@ -1,0 +1,1 @@
+select * from {{ source('bronze','raw_events') }} where event_timestamp is not null

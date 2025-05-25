@@ -1,0 +1,29 @@
+{
+  "name": "lakehouse-dev",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
+  "features": {
+    "ghcr.io/devcontainers/features/terraform:1": {},
+    "ghcr.io/devcontainers/features/aws-cli:1": {
+      "version": "2"
+    },
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "3.10"
+    },
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "lts"
+    }
+  },
+  "postCreateCommand": "pip install --upgrade pip && pip install dbt-core dbt-spark great_expectations fastapi 'uvicorn[standard]' infracost && curl -L -o /usr/local/bin/opa https://openpolicyagent.org/downloads/latest/opa_linux_amd64_static && chmod +x /usr/local/bin/opa",
+  "remoteEnv": {
+    "AWS_DEFAULT_REGION": "ap-northeast-1"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "hashicorp.terraform",
+        "ms-python.python",
+        "eamodio.gitlens"
+      ]
+    }
+  }
+}
