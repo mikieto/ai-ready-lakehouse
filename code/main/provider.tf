@@ -2,7 +2,7 @@
 terraform {
   required_version = ">= 1.6.0"
   backend "s3" {
-    bucket       = "REPLACE_ME_STATE_BUCKET"
+    bucket       = "ai-ready-lakehouse-tfstate"
     key          = "global/terraform.tfstate"
     region       = "us-east-1"
     use_lockfile = true
